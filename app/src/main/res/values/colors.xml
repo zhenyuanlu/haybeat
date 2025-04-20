@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Teal Palette (Primary Theme Color) -->
+    <color name="teal_50">#F0FDFA</color>
+    <color name="teal_100">#CCFBF1</color>
+    <color name="teal_200">#99F6E4</color>
+    <color name="teal_300">#5EEAD4</color>
+    <color name="teal_400">#2DD4BF</color>
+    <color name="teal_500">#14B8A6</color> <!-- Primary Color -->
+    <color name="teal_600">#0D9488</color> <!-- Darker variant for status bar etc. -->
+    <color name="teal_700">#0F766E</color>
+    <color name="teal_800">#115E59</color>
+    <color name="teal_900">#134E4A</color>
+
+    <!-- Amber Palette (Accent Color / Used for Priority) -->
+    <color name="amber_50">#FFFBEB</color>
+    <color name="amber_100">#FEF3C7</color>
+    <color name="amber_400">#FBBF24</color>
+    <color name="amber_500">#F59E0B</color> <!-- Accent Color -->
+    <color name="amber_700">#B45309</color>
+
+    <!-- Grey Palette (Used for backgrounds, text, borders) -->
+    <color name="grey_50">#F9FAFB</color>   <!-- Light background -->
+    <color name="grey_100">#F3F4F6</color>
+    <color name="grey_200">#E5E7EB</color>  <!-- Light borders -->
+    <color name="grey_300">#D1D5DB</color>  <!-- Default borders / Disabled state -->
+    <color name="grey_400">#9CA3AF</color>  <!-- Hint text / Secondary text -->
+    <color name="grey_500">#6B7280</color>
+    <color name="grey_600">#4B5563</color>  <!-- Medium text -->
+    <color name="grey_700">#374151</color>
+    <color name="grey_800">#1F2937</color>  <!-- Dark surfaces / Primary text (dark theme) -->
+    <color name="grey_900">#111827</color>  <!-- Dark background / Primary text (light theme) -->
+
+    <!-- Other Colors for Habit Categories (Examples) -->
+    <color name="blue_500">#3B82F6</color>
+    <color name="green_500">#22C55E</color>
+    <color name="indigo_500">#6366F1</color>
+    <color name="red_500">#EF4444</color>    <!-- Error / Negative accent -->
+
+    <!-- Status Colors for Backgrounds/Text -->
+    <color name="status_green_bg">#ECFDF5</color> <!-- Light green bg -->
+    <color name="status_green_text">#065F46</color> <!-- Dark green text -->
+    <color name="status_red_bg">#FEF2F2</color>   <!-- Light red bg -->
+    <color name="status_red_text">#991B1B</color>   <!-- Dark red text -->
+
+</resources>

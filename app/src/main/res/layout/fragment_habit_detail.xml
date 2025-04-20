@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Use FrameLayout or CoordinatorLayout for DialogFragment content -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface"
+    tools:context=".ui.habits.HabitDetailFragment">
+
+    <!-- Toolbar (optional, can use Dialog title) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/habit_details"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:menu="@menu/habit_detail_menu" />
+
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <ScrollView
+        android:id="@+id/content_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/habit_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                tools:text="Morning Meditation" />
+
+            <!-- Stats Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_flame_amber"
+                        android:contentDescription="@null"/>
+                    <TextView
+                        android:id="@+id/current_streak_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:layout_marginTop="4dp"
+                        tools:text="12" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/current_streak"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle_teal"
+                        android:contentDescription="@null"/>
+                    <TextView
+                        android:id="@+id/total_completions_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:layout_marginTop="4dp"
+                        tools:text="42" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_completions"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_award_blue"
+                        android:contentDescription="@null"/>
+                    <TextView
+                        android:id="@+id/best_streak_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:layout_marginTop="4dp"
+                        tools:text="24" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/best_streak"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Separator -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Details Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"> <!-- Padding bottom for spacing before potential buttons -->
+
+                <LinearLayout style="@style/DetailRow">
+                    <TextView style="@style/DetailLabel" android:text="@string/category"/>
+                    <TextView style="@style/DetailValue" android:id="@+id/category_text" tools:text="Mindfulness"/>
+                </LinearLayout>
+                <LinearLayout style="@style/DetailRow">
+                    <TextView style="@style/DetailLabel" android:text="@string/priority"/>
+                    <TextView style="@style/DetailValue" android:id="@+id/priority_text" tools:text="High"/>
+                </LinearLayout>
+                <LinearLayout style="@style/DetailRow">
+                    <TextView style="@style/DetailLabel" android:text="@string/frequency"/>
+                    <TextView style="@style/DetailValue" android:id="@+id/frequency_text" tools:text="Daily"/>
+                </LinearLayout>
+                <LinearLayout style="@style/DetailRow">
+                    <TextView style="@style/DetailLabel" android:text="@string/reminder"/>
+                    <TextView style="@style/DetailValue" android:id="@+id/reminder_text" tools:text="08:00 AM"/>
+                </LinearLayout>
+                <LinearLayout style="@style/DetailRow">
+                    <TextView style="@style/DetailLabel" android:text="@string/start_date"/>
+                    <TextView style="@style/DetailValue" android:id="@+id/start_date_text" tools:text="Jan 15, 2025"/>
+                </LinearLayout>
+                <LinearLayout style="@style/DetailRow">
+                    <TextView style="@style/DetailLabel" android:text="@string/color"/>
+                    <View
+                        android:id="@+id/color_indicator_view"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/habit_color_indicator_background"/> <!-- Reuse drawable -->
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Completion History (Placeholder)"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="?attr/textAppearanceLabelLarge"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/grey_200"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

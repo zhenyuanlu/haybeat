@@ -21,7 +21,7 @@
 <a href="https://img.shields.io/badge/Firebase-Auth%20%7C%20Firestore%20%7C%20AppCheck-orange" target="_blank">
     <img src="https://img.shields.io/badge/Firebase-Auth%20%7C%20Firestore%20%7C%20AppCheck-orange" alt="Firebase">
 </a>
-<!-- add a badge with hobby project, with differnet color  -->
+
 <a href="https://img.shields.io/badge/Hobby-For%20Fun-green" target="_blank">
     <img src="https://img.shields.io/badge/Hobby-For%20Fun-green" alt="Hobby Project">
 </a>

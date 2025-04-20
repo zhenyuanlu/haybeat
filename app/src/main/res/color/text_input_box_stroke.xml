@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Color when the input field is focused -->
+    <item android:color="?attr/colorPrimary" android:state_focused="true"/>
+    <!-- Color when hovered (less common on mobile) -->
+    <item android:color="@color/grey_400" android:state_hovered="true"/>
+    <!-- Color when disabled -->
+    <item android:color="@color/grey_300" android:state_enabled="false"/>
+    <!-- Default color when not focused or hovered -->
+    <item android:color="@color/grey_300"/>
+</selector>

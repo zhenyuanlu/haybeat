@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"> <!-- Allow card shadows -->
+
+        <!-- Profile Screen Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_profile"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Profile Header Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Haybeat.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <!-- Profile Picture Placeholder -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                android:background="?attr/colorPrimaryContainer"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_user"
+                app:tint="?attr/colorOnPrimaryContainer"
+                android:layout_marginEnd="16dp"/>
+
+                <!-- Name and Email -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/profile_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceTitleLarge"
+                        tools:text="Alex Johnson"/>
+                    <TextView
+                        android:id="@+id/profile_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?android:attr/textColorSecondary"
+                        tools:text="alex.johnson@example.com"/>
+                    <!-- Optional: Membership Chip -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/membership_chip"
+                        style="@style/Widget.Material3.Chip.Suggestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        tools:text="Pro Member"/>
+                </LinearLayout>
+                <!-- Optional: Edit Profile Button -->
+                <!-- <ImageButton android:id="@+id/edit_profile_button" ... /> -->
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Settings Links Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Haybeat.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Notifications Item -->
+                <LinearLayout
+                    android:id="@+id/settings_notifications_item"
+                    style="@style/SettingsItemRow"> <!-- Use style -->
+                    <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_notifications" app:tint="?attr/colorPrimary"/>
+                    <TextView style="@style/SettingsItemText" android:text="@string/reminders_notifications"/>
+                    <ImageView style="@style/SettingsItemChevron"/>
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="56dp"/> <!-- Indent divider -->
+
+                <!-- Dark Mode Item -->
+                <LinearLayout
+                    android:id="@+id/settings_dark_mode_item"
+                    style="@style/SettingsItemRow"
+                    android:clickable="false" android:focusable="false"> <!-- Prevent row click, handle switch -->
+                    <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_dark_mode" app:tint="?attr/colorPrimary"/>
+                    <TextView style="@style/SettingsItemText" android:text="@string/dark_mode"/>
+                    <!-- Dark Mode Toggle Switch -->
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/dark_mode_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="56dp"/>
+
+                <!-- App Settings Item -->
+                <LinearLayout
+                    android:id="@+id/settings_app_settings_item"
+                    style="@style/SettingsItemRow">
+                    <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_settings" app:tint="?attr/colorPrimary"/>
+                    <TextView style="@style/SettingsItemText" android:text="@string/app_settings"/>
+                    <ImageView style="@style/SettingsItemChevron"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Data & Support Links Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Haybeat.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Export Data Item -->
+                <LinearLayout
+                    android:id="@+id/settings_export_item"
+                    style="@style/SettingsItemRow">
+                    <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_export" app:tint="?attr/colorPrimary"/>
+                    <TextView style="@style/SettingsItemText" android:text="@string/export_data"/>
+                    <ImageView style="@style/SettingsItemChevron"/>
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="56dp"/>
+
+                <!-- Help & Support Item -->
+                <LinearLayout
+                    android:id="@+id/settings_help_item"
+                    style="@style/SettingsItemRow">
+                    <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_help" app:tint="?attr/colorPrimary"/>
+                    <TextView style="@style/SettingsItemText" android:text="@string/help_support"/>
+                    <ImageView style="@style/SettingsItemChevron"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Sign Out Button -->
+        <Button
+            android:id="@+id/sign_out_button"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_out"
+            android:textColor="?attr/colorError"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

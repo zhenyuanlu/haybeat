@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.habits.HabitsFragment">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingClass">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Header Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/header_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Habits"
+                        android:textAppearance="?attr/textAppearanceHeadline5" />
+
+                    <TextView
+                        android:id="@+id/header_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="March 23, 2025"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                    <!-- Progress Section -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp">
+
+                    <!-- Circular Progress Indicator (Constrained) -->
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:progress="75"
+                        app:indicatorSize="64dp"
+                        app:trackThickness="4dp"
+                        app:trackCornerRadius="2dp"
+                        app:indicatorDirectionCircular="clockwise"
+                        app:indicatorColor="?attr/colorPrimary"
+                        app:trackColor="?attr/colorSurfaceVariant"
+                        app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" /> <!-- Align bottom to parent -->
+
+                    <!-- Percentage Text (Constrained to center of Indicator) -->
+                    <TextView
+                        android:id="@+id/progress_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceTitleLarge"
+                        android:textColor="?attr/colorPrimary"
+                        tools:text="100%"
+                        app:layout_constraintTop_toTopOf="@id/progress_indicator"
+                    app:layout_constraintBottom_toBottomOf="@id/progress_indicator"
+                    app:layout_constraintStart_toStartOf="@id/progress_indicator"
+                    app:layout_constraintEnd_toEndOf="@id/progress_indicator"    /> <!-- Align end to indicator end -->
+
+                    <!-- Progress Summary Text (Constrained to right of Indicator) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@id/progress_indicator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/progress_indicator"
+                    app:layout_constraintBottom_toBottomOf="@id/progress_indicator"> <!-- Align bottom with indicator -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/today_s_progress"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TextView
+                        android:id="@+id/progress_summary_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?android:attr/textColorSecondary"
+                        tools:text="3 of 4 habits completed" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Priority Habits Section -->
+                <LinearLayout
+                    android:id="@+id/priority_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:text="Priority for Today"
+                        android:textAppearance="?attr/textAppearanceSubtitle2"
+                        android:background="@color/amber_50"
+                    android:textColor="@color/amber_700" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/priority_habits_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_habit"
+                        tools:itemCount="1" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/priority_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+                </LinearLayout>
+
+
+                <!-- All Habits Section -->
+                <LinearLayout
+                    android:id="@+id/all_habits_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:text="All Habits"
+                        android:textAppearance="?attr/textAppearanceSubtitle2"
+                        android:textColor="?android:attr/textColorPrimary"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/all_habits_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_habit"
+                    tools:itemCount="3"/>
+                </LinearLayout>
+
+                <!-- Empty State (Centered in NestedScrollView) -->
+                <LinearLayout
+                    android:id="@+id/empty_state_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_check_square"
+                    app:tint="?attr/colorSurfaceVariant"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="No habits yet!"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Tap the '+' button to add your first habit."
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_habit_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="16dp"
+    android:contentDescription="@string/add_habit"
+    app:srcCompat="@drawable/ic_plus" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

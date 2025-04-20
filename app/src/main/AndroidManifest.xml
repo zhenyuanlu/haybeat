@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:name=".HaybeatApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:enableOnBackInvokedCallback="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Haybeat"
+        tools:targetApi="31">
+
+        <!-- LoginActivity is the starting point (Launcher) -->
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Haybeat.NoActionBar"> <!-- Use a theme without an action bar -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- SignupActivity is not launched directly -->
+        <activity
+            android:name=".auth.SignupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Haybeat.NoActionBar" />
+
+        <!-- MainActivity holds the main app content after login -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"> <!-- Prevents keyboard from pushing the bottom nav bar up -->
+        </activity>
+
+        <!-- Receiver for handling habit reminder alarms -->
+        <receiver
+            android:name=".service.HabitReminderReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Receiver to reschedule alarms when the device boots up -->
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <!-- Standard boot completed action -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- Some devices use this action -->
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+
+
+    </application>
+
+</manifest>

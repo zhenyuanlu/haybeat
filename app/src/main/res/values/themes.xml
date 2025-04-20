@@ -1,0 +1,223 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme (Light Mode). -->
+    <!-- Using Material 3 DayNight theme allows automatic switching -->
+    <style name="Base.Theme.Haybeat" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="elevationOverlayColor">?attr/colorSurface</item>
+        <!-- Primary brand color (Teal) -->
+        <item name="colorPrimary">@color/teal_500</item>
+        <item name="colorPrimaryVariant">@color/teal_600</item> <!-- Often used for status bar -->
+        <item name="colorOnPrimary">@color/white</item> <!-- Text/icon color on Primary -->
+        <item name="colorPrimaryContainer">@color/teal_100</item> <!-- Lighter background for primary elements -->
+        <item name="colorOnPrimaryContainer">@color/teal_900</item> <!-- Text/icon color on Primary Container -->
+
+        <!-- Secondary brand color (Amber) -->
+        <item name="colorSecondary">@color/amber_500</item>
+        <item name="colorSecondaryVariant">@color/amber_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryContainer">@color/amber_100</item>
+        <item name="colorOnSecondaryContainer">@color/amber_700</item>
+
+        <!-- Error color (Red) -->
+        <item name="colorError">@color/red_500</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/status_red_bg</item>
+        <item name="colorOnErrorContainer">@color/status_red_text</item>
+
+        <!-- Background and Surface colors -->
+        <item name="android:colorBackground">@color/grey_50</item> <!-- Overall window background -->
+        <item name="colorSurface">@color/white</item> <!-- Card, Sheet, Menu backgrounds -->
+        <item name="colorSurfaceVariant">@color/grey_200</item> <!-- Subtle backgrounds, outlines -->
+        <item name="colorOnBackground">@color/grey_900</item> <!-- Text on main background -->
+        <item name="colorOnSurface">@color/grey_900</item> <!-- Text on cards, sheets -->
+        <item name="colorOnSurfaceVariant">@color/grey_700</item> <!-- Secondary text on surfaces -->
+        <item name="android:textColorPrimary">@color/grey_900</item>
+        <item name="android:textColorSecondary">@color/grey_600</item>
+        <item name="android:textColorHint">@color/grey_400</item>
+
+        <!-- Status bar color and icon appearance -->
+        <item name="android:statusBarColor">?attr/colorSurface</item> <!-- Match card/toolbar background -->
+        <item name="android:windowLightStatusBar">true</item> <!-- Use dark icons on light status bar -->
+        <!-- Navigation bar color (optional) -->
+        <!-- <item name="android:navigationBarColor">?attr/colorSurface</item> -->
+        <!-- <item name="android:windowLightNavigationBar">true</item> -->
+
+        <!-- Default style overrides for widgets -->
+        <item name="textInputStyle">@style/Widget.Haybeat.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.Haybeat.Button</item>
+<!--        <item name="bottomNavigationStyle">@style/Widget.Haybeat.BottomNavigationView</item>-->
+        <item name="materialCardViewStyle">@style/Widget.Haybeat.CardView</item>
+        <item name="chipStyle">@style/Widget.Haybeat.Chip.Filter</item> <!-- Default chip style -->
+
+        <!-- Font overrides (Optional - requires font files in res/font) -->
+        <!-- <item name="fontFamily">@font/your_app_font</item> -->
+        <!-- <item name="android:fontFamily">@font/your_app_font</item> -->
+
+    </style>
+
+    <!-- The actual theme applied to the app -->
+    <style name="Theme.Haybeat" parent="Base.Theme.Haybeat" />
+
+    <!-- Theme variation without an ActionBar (used for Login/Signup) -->
+    <style name="Theme.Haybeat.NoActionBar" parent="Theme.Haybeat">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Custom Widget Styles (Light Mode) -->
+    <style name="Widget.Haybeat.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item> <!-- Use color selector -->
+        <item name="hintTextColor">?attr/colorOnSurfaceVariant</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item> <!-- Slightly rounded corners -->
+    </style>
+
+    <style name="Widget.Haybeat.Button" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item> <!-- Keep original text case -->
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="cornerRadius">8dp</item> <!-- Consistent corner radius -->
+    </style>
+
+    <style name="Widget.Haybeat.BottomNavigationView" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.Haybeat.BottomNavIndicator</item>
+        <!-- **** SET BACKGROUND EXPLICITLY **** -->
+        <!-- Use colorSurface which should be white in light theme -->
+        <item name="android:background">?attr/colorSurface</item>
+        <!-- ********************************* -->
+        <item name="elevation">8dp</item> <!-- Keep elevation if desired -->
+    </style>
+
+    <!-- Custom Indicator for Bottom Nav -->
+    <style name="Widget.Haybeat.BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">64dp</item>
+        <item name="android:height">32dp</item>
+        <item name="marginHorizontal">8dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+        <item name="android:color">?attr/colorPrimaryContainer</item>
+    </style>
+
+    <style name="Widget.Haybeat.CardView" parent="Widget.Material3.CardView.Elevated">
+        <!-- Add custom card attributes if needed, e.g., default margins -->
+<!--        <item name="cardElevation">2dp</item>-->
+<!--        <item name="cardCornerRadius">12dp</item>-->
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <!-- Base style for Filter Chips (used for Priority, Days, Colors) -->
+    <style name="Widget.Haybeat.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipMinHeight">40dp</item>
+        <item name="chipCornerRadius">8dp</item>
+    </style>
+
+    <!-- Styles for Detail Screen Rows (from previous response) -->
+    <style name="DetailRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingVertical">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="DetailLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="DetailValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <!-- Styles for Profile Settings Rows (from previous response) -->
+    <style name="SettingsItemRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="SettingsItemIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    <style name="SettingsItemText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+    </style>
+    <style name="SettingsItemChevron">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_chevron_right</item>
+    </style>
+    <style name="Widget.Haybeat.Chip.Filter.Color" parent="Widget.Haybeat.Chip.Filter">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="chipIconVisible">false</item> <!-- Hide default check icon -->
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipStrokeColor">@color/chip_color_stroke_selector</item> <!-- Use selector for stroke -->
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item> <!-- Make them circular -->
+        <item name="android:checkable">true</item>
+        <!-- Text is usually empty for color chips -->
+        <item name="android:text"></item>
+    </style>
+    <!-- Styles for Stats Cards (from previous response) -->
+    <style name="StatsCardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    <style name="StatsCardTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceTitleMedium</item>
+    </style>
+    <style name="HabitDetailStatItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">4dp</item>
+    </style>
+    <style name="HabitDetailStatIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+    <style name="HabitDetailStatValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="HabitDetailStatLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceCaption</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearance.Material3.BodyLarge.Bold" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

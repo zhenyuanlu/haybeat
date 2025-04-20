@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_habits"> <!-- Start on the Habits screen -->
+
+    <!-- Habits Screen Fragment -->
+    <fragment
+        android:id="@+id/navigation_habits"
+        android:name="com.example.haybeat.ui.habits.HabitsFragment"
+        android:label="@string/title_habits"
+        tools:layout="@layout/fragment_habits">
+        <!-- Action to navigate FROM Habits TO Add/Edit Habit -->
+        <action
+            android:id="@+id/action_navigation_habits_to_addHabitFragment"
+            app:destination="@id/addHabitFragment" />
+        <!-- Action to navigate FROM Habits TO Habit Detail -->
+        <action
+            android:id="@+id/action_navigation_habits_to_habitDetailFragment"
+            app:destination="@id/habitDetailFragment" />
+    </fragment>
+
+    <!-- Stats Screen Fragment -->
+    <fragment
+        android:id="@+id/navigation_stats"
+        android:name="com.example.haybeat.ui.stats.StatsFragment"
+        android:label="@string/title_stats"
+        tools:layout="@layout/fragment_stats">
+    <action
+        android:id="@+id/action_navigation_stats_to_createChallengeFragment"
+        app:destination="@id/createChallengeFragment" />
+    </fragment>
+
+
+    <!-- Profile Screen Fragment -->
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.haybeat.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <!-- Add/Edit Habit Screen Fragment -->
+    <fragment
+        android:id="@+id/addHabitFragment"
+        android:name="com.example.haybeat.ui.habits.AddHabitFragment"
+        android:label="Habit Entry"
+        tools:layout="@layout/fragment_add_habit">
+
+        <!-- Argument for the Habit ID being edited (nullable for 'Add' mode) -->
+        <argument
+            android:name="habitId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+    </fragment>
+
+    <!-- Habit Detail Screen (as a DialogFragment/BottomSheet) -->
+    <!-- Use <dialog> tag for BottomSheetDialogFragment -->
+    <dialog
+    android:id="@+id/habitDetailFragment"
+    android:name="com.example.haybeat.ui.habits.HabitDetailFragment"
+    android:label="@string/habit_details"
+    tools:layout="@layout/fragment_habit_detail">
+    <!-- Argument to receive habitId (required) -->
+    <argument
+        android:name="habitId"
+        app:argType="string" />
+    <!-- Action to navigate FROM Detail TO Add/Edit Habit -->
+    <action
+        android:id="@+id/action_habitDetailFragment_to_addHabitFragment"
+        app:destination="@id/addHabitFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/createChallengeFragment"
+        android:name="com.example.haybeat.ui.stats.CreateChallengeFragment"
+        android:label="@string/create_challenge"
+        tools:layout="@layout/fragment_create_challenge" />
+</navigation>

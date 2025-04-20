@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"> <!-- Ripple effect on click -->
+
+    <!-- Color Indicator on the left -->
+    <View
+        android:id="@+id/color_indicator_view"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:background="@drawable/habit_color_indicator_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Checkbox for completion status -->
+    <!-- Using MaterialCheckBox for better theme support -->
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/habit_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        app:buttonTint="@color/grey_400"
+    app:layout_constraintStart_toEndOf="@id/color_indicator_view"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginEnd="12dp"/>
+
+    <!-- Habit Name -->
+    <TextView
+        android:id="@+id/habit_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/habit_check_box"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/habit_category_text_view"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/habit_streak_text_view"
+        android:layout_marginEnd="8dp"
+        tools:text="Morning Meditation" />
+
+    <!-- Category (Optional, below name) -->
+    <TextView
+        android:id="@+id/habit_category_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:textColor="?android:attr/textColorSecondary"
+        app:layout_constraintStart_toStartOf="@id/habit_name_text_view"
+        app:layout_constraintTop_toBottomOf="@id/habit_name_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/habit_name_text_view"
+        android:layout_marginTop="2dp"
+        tools:text="Mindfulness" />
+
+    <!-- Streak Count on the right -->
+    <TextView
+        android:id="@+id/habit_streak_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textColor="?android:attr/textColorSecondary"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        app:drawableStartCompat="@drawable/ic_flame_amber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="12" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

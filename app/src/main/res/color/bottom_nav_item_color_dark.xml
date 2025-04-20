@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Color when selected (use the primary color defined for the dark theme) -->
+    <item android:color="?attr/colorPrimary" android:state_checked="true"/>
+    <!-- Default color (a lighter grey that stands out on the dark background) -->
+    <item android:color="@color/grey_500" android:state_checked="false"/>
+</selector>

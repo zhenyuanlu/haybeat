@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stats_swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.stats.StatsFragment">
+
+
+<androidx.core.widget.NestedScrollView
+android:id="@+id/stats_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"> <!-- Allows content inside to fill height if needed -->
+
+    <!-- Main container for all the cards and content -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="16dp"
+android:clipToPadding="false"
+android:clipChildren="false"> <!-- Allow card shadows to be drawn outside padding -->
+
+<!-- Header Section: Title and Refresh Button -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="16dp">
+
+    <!-- Screen Title -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/statistics"
+        android:textAppearance="?attr/textAppearanceHeadline5" />
+
+    <!-- Manual Refresh Button -->
+    <ImageButton
+        android:id="@+id/refresh_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_refresh"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Refresh Stats"/>
+
+    <!-- Share Button (Hidden for now) -->
+    <Button
+        android:id="@+id/share_button"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_results"
+        android:visibility="gone"/>
+
+</LinearLayout>
+
+<!-- Overall Completion Card -->
+<com.google.android.material.card.MaterialCardView
+    style="@style/Widget.Haybeat.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <LinearLayout style="@style/StatsCardContent">
+        <TextView style="@style/StatsCardTitle"
+            android:text="@string/overall_completion"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="bottom|center_vertical">
+            <TextView
+                android:id="@+id/overall_completion_percent_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="?attr/colorPrimary"
+                tools:text="82%"/>
+            <TextView
+                android:id="@+id/overall_completion_desc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="this month"/>
+        </LinearLayout>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/completion_trend_chart"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            tools:ignore="MissingClass" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+<!-- Consistency Score Card -->
+<com.google.android.material.card.MaterialCardView
+    style="@style/Widget.Haybeat.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <LinearLayout style="@style/StatsCardContent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView style="@style/StatsCardTitle" android:text="@string/consistency_score" android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/consistency_info_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_info"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="4dp"
+                app:tint="?android:attr/textColorSecondary"
+                android:contentDescription="@string/how_it_works"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp">
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/consistency_progress_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:progress="75"
+                    app:indicatorSize="80dp"
+                    app:trackThickness="6dp"
+                    app:trackCornerRadius="3dp"
+                    app:indicatorDirectionCircular="clockwise"
+                    app:indicatorColor="?attr/colorPrimary"
+                    app:trackColor="?attr/colorSurfaceVariant" />
+                <TextView
+                    android:id="@+id/consistency_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="?attr/colorPrimary"
+                    tools:text="75" />
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/consistency_rating_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    tools:text="Good" />
+                <TextView
+                    android:id="@+id/consistency_factors_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:text="Streaks +5 pts, Completion +70%" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+<!-- Completion by Day Card -->
+<com.google.android.material.card.MaterialCardView
+    style="@style/Widget.Haybeat.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <LinearLayout style="@style/StatsCardContent">
+        <TextView style="@style/StatsCardTitle" android:text="@string/completion_by_day"/>
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/completion_by_day_chart"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            tools:ignore="MissingClass"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/most_efficient_day"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"/>
+            <TextView
+                android:id="@+id/most_efficient_day_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textStyle="bold"
+                tools:text="Sunday (90%)"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+<!-- Habits Ranking Card -->
+<com.google.android.material.card.MaterialCardView
+    style="@style/Widget.Haybeat.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <LinearLayout style="@style/StatsCardContent">
+        <TextView style="@style/StatsCardTitle" android:text="@string/habits_ranking"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/habit_ranking_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_habit_ranking"/>
+        <TextView
+            android:id="@+id/empty_ranking_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+<!-- Challenges Card -->
+<com.google.android.material.card.MaterialCardView
+    style="@style/Widget.Haybeat.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <LinearLayout style="@style/StatsCardContent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView style="@style/StatsCardTitle" android:text="@string/friends_leaderboard" android:layout_weight="1"/>
+            <Button
+                android:id="@+id/create_challenge_button"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_challenge"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/challenges_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:nestedScrollingEnabled="false"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_challenge"/>
+        <TextView
+            android:id="@+id/empty_challenges_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_challenges"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone"/>
+        <!-- Leaderboard Section -->
+        <LinearLayout
+            android:id="@+id/leaderboard_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/leaderboard_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:layout_marginBottom="8dp"
+                tools:text="Challenge: Meditation Masters" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/leaderboard_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_leaderboard_entry" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+<!-- Activity Heatmap Card -->
+<com.google.android.material.card.MaterialCardView
+    style="@style/Widget.Haybeat.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <LinearLayout style="@style/StatsCardContent">
+        <TextView style="@style/StatsCardTitle" android:text="@string/activity_heatmap"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingVertical="32dp"
+            android:gravity="center"
+            android:background="?attr/colorSurfaceVariant"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:text="@string/coming_soon"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

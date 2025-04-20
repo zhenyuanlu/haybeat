@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Rank Number -->
+    <TextView
+        android:id="@+id/rank_text_view"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textColor="?android:attr/textColorSecondary"
+        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        tools:text="1"/>
+
+    <!-- Color Indicator -->
+    <View
+        android:id="@+id/color_indicator_view"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/habit_color_indicator_background"/>
+
+    <!-- Habit Name -->
+    <TextView
+        android:id="@+id/habit_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:layout_marginEnd="8dp"
+        tools:text="Drink 8 Glasses Water"/>
+
+    <!-- Streak Icon -->
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_flame_amber"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@null"/>
+
+    <!-- Streak Value -->
+    <TextView
+        android:id="@+id/streak_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textStyle="bold"
+        tools:text="22"/>
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme overrides (Dark Mode). -->
+    <!-- Inherits from Base.Theme.Haybeat defined in values/themes.xml -->
+    <!-- Only override the colors/attributes needed for dark theme -->
+    <style name="Base.Theme.Haybeat" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Primary brand color (Lighter Teal for dark background) -->
+        <item name="colorPrimary">@color/teal_400</item>
+        <item name="colorPrimaryVariant">@color/teal_500</item>
+        <item name="colorOnPrimary">@color/grey_900</item>
+        <item name="colorPrimaryContainer">@color/teal_800</item> <!-- Darker container -->
+        <item name="colorOnPrimaryContainer">@color/teal_100</item>
+
+        <!-- Secondary brand color (Lighter Amber) -->
+        <item name="colorSecondary">@color/amber_400</item>
+        <item name="colorSecondaryVariant">@color/amber_500</item>
+        <item name="colorOnSecondary">@color/grey_900</item>
+        <item name="colorSecondaryContainer">@color/amber_700</item> <!-- Darker container -->
+        <item name="colorOnSecondaryContainer">@color/amber_100</item>
+
+        <!-- Error color -->
+        <item name="colorError">@color/red_500</item> <!-- Keep error color consistent? Or use lighter red -->
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">#5F1D1D</item> <!-- Dark Reddish Container -->
+        <item name="colorOnErrorContainer">#FDE2E2</item> <!-- Light Red Text -->
+
+
+        <!-- Background and Surface colors (Darker) -->
+        <item name="android:colorBackground">@color/grey_900</item> <!-- Very dark background -->
+        <item name="colorSurface">@color/grey_800</item> <!-- Slightly lighter surface for cards -->
+        <item name="colorSurfaceVariant">@color/grey_700</item> <!-- Darker outlines/subtle bg -->
+        <item name="colorOnBackground">@color/grey_100</item> <!-- Light text -->
+        <item name="colorOnSurface">@color/grey_100</item> <!-- Light text on cards -->
+        <item name="colorOnSurfaceVariant">@color/grey_400</item> <!-- Medium-light secondary text -->
+        <item name="android:textColorPrimary">@color/grey_100</item>
+        <item name="android:textColorSecondary">@color/grey_400</item>
+        <item name="android:textColorHint">@color/grey_500</item>
+
+        <!-- Status bar color and icon appearance -->
+        <item name="android:statusBarColor">?attr/colorSurface</item> <!-- Match card/toolbar background -->
+        <item name="android:windowLightStatusBar">false</item> <!-- Use light icons on dark status bar -->
+        <!-- Navigation bar color (optional) -->
+        <!-- <item name="android:navigationBarColor">?attr/colorSurface</item> -->
+        <!-- <item name="android:windowLightNavigationBar">false</item> -->
+
+        <!-- Use the same widget style references as light theme (they might use selectors) -->
+        <item name="textInputStyle">@style/Widget.Haybeat.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.Haybeat.Button</item>
+<!--        <item name="bottomNavigationStyle">@style/Widget.Haybeat.BottomNavigationView</item>-->
+        <item name="materialCardViewStyle">@style/Widget.Haybeat.CardView</item>
+        <item name="chipStyle">@style/Widget.Haybeat.Chip.Filter</item>
+
+    </style>
+
+    <!-- Custom Widget Style Overrides for Dark Mode (If needed) -->
+    <!-- Example: Override if stroke color needs specific dark mode color -->
+    <style name="Widget.Haybeat.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_input_box_stroke_dark</item> <!-- Use dark selector -->
+        <item name="hintTextColor">?attr/colorOnSurfaceVariant</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
+    </style>
+
+    <style name="Widget.Haybeat.BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">64dp</item>
+        <item name="android:height">32dp</item>
+        <item name="marginHorizontal">8dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+        <item name="android:color">?attr/colorPrimaryContainer</item>
+    </style>
+
+</resources>

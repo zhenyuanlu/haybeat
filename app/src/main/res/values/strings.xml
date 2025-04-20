@@ -1,0 +1,159 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Haybeat</string>
+
+    <!-- Bottom Navigation Titles -->
+    <string name="title_habits">Habits</string>
+    <string name="title_stats">Stats</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Authentication Screen -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="dont_have_account">Don\'t have an account? Sign Up</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="auth_failed">Authentication Failed</string>
+    <string name="password_mismatch">Passwords do not match</string>
+    <string name="weak_password">Password must be at least 6 characters</string>
+    <string name="email_in_use">Email address is already in use</string>
+    <string name="invalid_email">Invalid email format</string>
+    <string name="enter_email">Please enter email</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="sign_out">Sign Out</string>
+
+    <!-- Habits Screens (List, Add/Edit, Detail) -->
+    <string name="add_habit">Add Habit</string>
+    <string name="edit_habit">Edit Habit</string>
+    <string name="new_habit">New Habit</string>
+    <string name="habit_name">Habit Name</string>
+    <string name="habit_name_hint">e.g., Morning Meditation</string>
+    <string name="category">Category</string>
+    <string name="priority">Priority</string>
+    <string name="high">High</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
+    <string name="frequency">Frequency</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="specific_days">Specific Days</string>
+    <string name="times_per_week">times per week</string>
+    <string name="reminder">Reminder</string>
+    <string name="no_reminder">No reminder set</string>
+    <string name="select_time">Select Time</string>
+    <string name="clear_reminder">Clear reminder</string>
+    <string name="color">Color</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete_habit">Delete Habit?</string>
+    <string name="delete_habit_message">Are you sure you want to permanently delete \"%s\"? This action cannot be undone.</string> <!-- %s will be replaced by habit name -->
+    <string name="cancel">Cancel</string>
+    <string name="habit_saved">Habit saved</string>
+    <string name="habit_deleted">Habit deleted</string>
+    <string name="error_saving_habit">Error saving habit</string>
+    <string name="error_deleting_habit">Error deleting habit</string>
+    <string name="error_loading_habit">Error loading habit details</string>
+    <string name="streak_format">%d streak</string> <!-- %d will be replaced by number -->
+    <string name="today_s_progress">Today\'s Progress</string>
+    <string name="progress_summary_format">%d of %d habits completed</string> <!-- e.g., 3 of 4 habits completed -->
+    <string name="priority_for_today">Priority for Today</string>
+    <string name="all_habits">All Habits</string>
+    <string name="empty_habits_title">No habits yet!</string>
+    <string name="empty_habits_message">Tap the \'+\' button to add your first habit.</string>
+    <string name="habit_details">Habit Details</string>
+    <string name="current_streak">Current Streak</string>
+    <string name="total_completions">Total Completions</string>
+    <string name="best_streak">Best Streak</string>
+    <string name="weekly_goal">Weekly Goal</string>
+    <string name="start_date">Start Date</string>
+    <string name="mark_as_complete">Mark as Complete</string>
+    <string name="mark_as_not_complete">Mark as Not Complete</string>
+    <string name="date_format_today">MMMM d, yyyy</string> <!-- e.g., March 23, 2025 -->
+    <string name="date_format_short">MMM d, yyyy</string> <!-- e.g., Mar 23, 2025 -->
+
+    <!-- Stats Screen -->
+    <string name="statistics">Statistics</string>
+    <string name="share_results">Share Results</string>
+    <string name="overall_completion">Overall Completion</string>
+    <string name="this_month">This month</string>
+    <string name="comparison_format">%.0f%% from last month</string> <!-- e.g., 8% from last month -->
+    <string name="last_month_format">Last: %.0f%%</string> <!-- e.g., Last: 74% -->
+    <string name="completion_trend">Completion Trend</string>
+    <string name="consistency_score">Consistency Score</string>
+    <string name="how_it_works">How it works</string>
+    <string name="consistency_desc">Your consistency score combines habit completion rates and streaks into a single metric. Build longer streaks and complete your habits more regularly to improve your score.</string>
+    <string name="completion_by_day">Completion by Day</string>
+    <string name="most_efficient_day">Most efficient day</string>
+    <string name="habits_ranking">Habits Ranking (by Streak)</string>
+    <string name="friends_leaderboard">Challenges</string> <!-- Renamed from Friends Leaderboard -->
+    <string name="share_progress">Share Progress</string>
+    <string name="challenge_a_friend">Challenge a Friend</string>
+    <string name="you">You</string>
+    <string name="completion_percent_format">%.0f%%</string> <!-- e.g., 86% -->
+    <string name="percent_change_format">%+d%%</string> <!-- e.g. +8%, -2% -->
+    <string name="create_challenge">Create Challenge</string>
+    <string name="challenge_name">Challenge Name</string>
+    <string name="challenge_goal">Goal (e.g., 80% consistency)</string>
+    <string name="challenge_duration">Duration (days)</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="no_challenges">No active challenges.</string>
+    <string name="activity_heatmap">Activity Heatmap</string>
+    <string name="coming_soon">(Coming Soon)</string>
+
+
+    <!-- Profile Screen -->
+    <string name="your_achievements">Your Achievements</string>
+    <string name="reminders_notifications"><![CDATA[Reminders & Notifications]]></string> <!-- CDATA prevents XML issues with '&' -->
+    <string name="app_settings">App Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="notifications">Notifications</string> <!-- General on/off toggle? -->
+    <string name="export_data">Export Data</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="pro_member">Pro Member</string> <!-- Example Status -->
+    <string name="sign_out_confirm">Are you sure you want to sign out?</string>
+
+    <!-- General UI Text -->
+    <string name="loading">Loading…</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="unknown_error">An unknown error occurred.</string>
+    <string name="ok">OK</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="discard">Discard</string>
+    <string name="unsaved_changes">Discard unsaved changes?</string>
+    <string name="no_data">No data available.</string>
+
+    <!-- Days of Week -->
+    <string name="monday_short">M</string>
+    <string name="tuesday_short">T</string>
+    <string name="wednesday_short">W</string>
+    <string name="thursday_short">T</string>
+    <string name="friday_short">F</string>
+    <string name="saturday_short">S</string>
+    <string name="sunday_short">S</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <!-- Notifications -->
+    <string name="habit_reminder_channel_name">Habit Reminders</string>
+    <string name="habit_reminder_channel_description">Notifications to remind you about your habits</string>
+    <string name="reminder_title">Time for %s!</string> <!-- %s = habit name -->
+    <string name="reminder_text">Don\'t forget to complete your habit today.</string>
+    <string name="mark_done">Mark as Done</string>
+    <string name="leaderboard_title_format">Leaderboard: %s</string>
+    <string name="leaderboard_you_format">%s (You)</string>
+
+    <string name="challenge_goal_display_format">Goal: %s</string>
+    <string name="challenge_end_date_format">Ends: %s</string>
+    <string name="challenge_ongoing">Ongoing</string>
+
+
+
+</resources>
